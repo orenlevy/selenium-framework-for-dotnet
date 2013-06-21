@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "WaitForElementNotPresent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>WaitForElementNotPresent</h2>
+<script type="text/javascript">
+    setTimeout(function() {
+        $("#button").remove();
+    }, 4000);
+
+
+</script>
+<input id="button" type="button" value="Button"/>

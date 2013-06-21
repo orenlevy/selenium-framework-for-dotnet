@@ -1,0 +1,61 @@
+﻿<Window x:Class="TestRunnerUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Test Runner" Height="388" Width="525">
+    <Grid>
+        <TextBox Name="txtFileName" Height="23" Margin="89,13,81,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <Label Content="Select File" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" VerticalAlignment="Top" Width="71"/>
+        <Button Content="Browse..." Height="23" Margin="0,13,10,0" VerticalAlignment="Top" Click="Button_Click" HorizontalAlignment="Right" Width="66"/>
+        <Button Name="btnGo" Content="Go" Margin="0,0,10,10" Click="btnGo_Click" Height="27" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="66"/>
+        <ListView Margin="10,163,81,10" SizeChanged="ListView_SizeChanged" Name="gvLog">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Line" Width="30" DisplayMemberBinding="{Binding Line}" ></GridViewColumn>
+                    <GridViewColumn Header="Command" DisplayMemberBinding="{Binding Command}" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="Blue"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Target" DisplayMemberBinding="{Binding Target}" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="Green"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Value" DisplayMemberBinding="{Binding Value}"></GridViewColumn>
+                    <GridViewColumn Header="Error" DisplayMemberBinding="{Binding Error}">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <TextBlock.Foreground>
+                                        <SolidColorBrush Color="Red"/>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Rectangle Fill="#FFF4F4F5" Height="100" Margin="10,41,81,0" Stroke="Black" VerticalAlignment="Top"/>
+        <Frame Content="Run test with browser" HorizontalAlignment="Left" Height="100" Margin="22,41,0,0" VerticalAlignment="Top" Width="132"/>
+        <RadioButton Name="Firefox" Content="Firefox" HorizontalAlignment="Left" Height="19" Margin="22,66,0,0" VerticalAlignment="Top" Width="112" IsChecked="True" />
+        <RadioButton Name="Chrome" Content="Chrome" HorizontalAlignment="Left" Height="19" Margin="22,86,0,0" VerticalAlignment="Top" Width="112"/>
+        <RadioButton Name="IE" Content="Internet Explorer" HorizontalAlignment="Left" Height="19" Margin="22,107,0,0" VerticalAlignment="Top" Width="112"/>
+        <Frame Content="Speed" HorizontalAlignment="Left" Height="100" Margin="159,42,0,0" VerticalAlignment="Top" Width="100" />
+        <Slider Name="sldSpeed" Minimum="500" Maximum="5000" TickFrequency="500" Ticks="10"  Orientation="Vertical" HorizontalAlignment="Left" Height="60" Margin="169,66,0,0" VerticalAlignment="Top" Width="25"/>
+    </Grid>
+
+</Window>
